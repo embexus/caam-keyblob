@@ -22,5 +22,5 @@ clean:
 	make -C ${KERNEL_SRC} M=$(CURDIR) clean
 
 caam_tool:
-	GOARCH=arm ${GO} build -ldflags "-s -w" -o caam_tool caam_tool.go
+	${CC} caam_tool.c  -o $@ $(LDFLAGS) $(LIBS) $(CFLAGS)$<
 endif
